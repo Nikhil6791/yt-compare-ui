@@ -9,9 +9,9 @@ const Navbar = () => {
         yt-compare
       </Link>
 
-      <div className="flex justify-end items-center right-content ">
+      <div className="flex justify-between gap-4 items-center">
         <Link
-          className="dark:hover:bg-gray-800 hover:rounded-xl px-3 py-2 hover:bg-gray-200 "
+          className="dark:hover:bg-gray-800 hover:rounded-xl  hover:bg-gray-200"
           to="/compare"
         >
           Compare

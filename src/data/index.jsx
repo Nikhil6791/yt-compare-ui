@@ -14,7 +14,7 @@ export const videoCardData = {
 };
 
 export const channelSearchData = {
-  title: "Select Two Channels Two Compare",
+  title: "Enter Channel Links",
   firstInputLabel: "First Channel Link",
   secondInputLabel: "Second Channel Link",
   inputPlaceHolder: "Search for channel",
@@ -22,7 +22,7 @@ export const channelSearchData = {
 };
 
 export const videoSearchData = {
-  title: "Select Two Video Two Compare",
+  title: "Enter Video Links",
   firstInputLabel: "First Video Link",
   secondInputLabel: "Second Video Link",
   inputPlaceHolder: "Search for video",

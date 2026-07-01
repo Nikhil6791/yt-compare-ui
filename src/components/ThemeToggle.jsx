@@ -6,7 +6,7 @@ const ThemeToggle = () => {
   const { dark, setDark } = useContext(ThemeContext);
 
   return (
-    <div className="flex justify-end items-center px-6 py-3">
+    <div className="flex justify-end items-center py-3">
       <button
         className=" flex justify-center items-center border border-gray-500 font-semibold cursor-pointer rounded-full w-10 h-10"
         onClick={() => setDark(!dark)}

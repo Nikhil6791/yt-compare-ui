@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { YTContext } from "../context/yt.context.jsx";
 import { channelSearchData, videoSearchData } from "../data/index.jsx";
 import ComparisionDetails from "./ComparisionDetails";
-const Card = ({ props, setComparisionData, setSelectedTab, tab }) => {
-  const handleClick = () => {
-    setSelectedTab(tab);
-    if (tab === "video") {
-      setComparisionData(videoSearchData);
-    }
 
-    if (tab === "channel") {
-      setComparisionData(channelSearchData);
-    }
+const Card = ({ props, onClick, className }) => {
+  const context = useContext(YTContext);
+  const { resetAll } = context;
+
+  const handleClick = () => {
+    onClick();
+    resetAll();
   };
+
   return (
     <div
       onClick={handleClick}
-      className="cursor-pointer hover:border-blue-500  border border-gray-400 p-4 rounded-2xl w-full"
+      className={`cursor-pointer border p-4 rounded-2xl w-full ${className}`}
     >
       <div className="heading flex gap-2 items-center justify-center">
         {props.icon}

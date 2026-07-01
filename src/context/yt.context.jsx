@@ -9,7 +9,21 @@ export const YTProvider = ({ children }) => {
   const [firstChannelData, setFirstChannelData] = useState(null);
   const [secondChannelData, setSecondChannelData] = useState(null);
 
+  const [firstInput, setFirstInput] = useState("");
+  const [secondInput, setSecondInput] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
+
   const [channelId, setChannelId] = useState(null);
+
+  const resetAll = () => {
+    setFirstVideoData(null);
+    setSecondVideoData(null);
+    setFirstInput("");
+    setSecondInput("");
+    setFirstChannelData(null);
+    setSecondChannelData(null);
+    setIsClicked(false);
+  };
 
   return (
     <YTContext.Provider
@@ -24,6 +38,13 @@ export const YTProvider = ({ children }) => {
         setSecondChannelData,
         channelId,
         setChannelId,
+        resetAll,
+        firstInput,
+        setFirstInput,
+        secondInput,
+        setSecondInput,
+        isClicked,
+        setIsClicked,
       }}
     >
       {children}
