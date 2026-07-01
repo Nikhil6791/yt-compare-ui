@@ -11,7 +11,7 @@ const Navbar = () => {
 
       <div className="flex justify-between gap-4 items-center">
         <Link
-          className="dark:hover:bg-gray-800 hover:rounded-xl  hover:bg-gray-200"
+          className="dark:hover:bg-gray-800 hover:rounded-xl p-2 hover:bg-gray-200"
           to="/compare"
         >
           Compare

@@ -3,6 +3,8 @@ import { createContext, useState } from "react";
 export const YTContext = createContext();
 
 export const YTProvider = ({ children }) => {
+  const [selectedTab, setSelectedTab] = useState("channel");
+
   const [firstVideoData, setFirstVideoData] = useState(null);
   const [secondVideoData, setSecondVideoData] = useState(null);
 
@@ -12,6 +14,8 @@ export const YTProvider = ({ children }) => {
   const [firstInput, setFirstInput] = useState("");
   const [secondInput, setSecondInput] = useState("");
   const [isClicked, setIsClicked] = useState(false);
+  const [isFirstLoading, setIsFirstLoading] = useState(false);
+  const [isSecondLoading, setIsSecondLoading] = useState(false);
 
   const [channelId, setChannelId] = useState(null);
 
@@ -28,6 +32,8 @@ export const YTProvider = ({ children }) => {
   return (
     <YTContext.Provider
       value={{
+        selectedTab,
+        setSelectedTab,
         firstVideoData,
         setFirstVideoData,
         secondVideoData,
@@ -45,6 +51,10 @@ export const YTProvider = ({ children }) => {
         setSecondInput,
         isClicked,
         setIsClicked,
+        isFirstLoading,
+        setIsFirstLoading,
+        isSecondLoading,
+        setIsSecondLoading,
       }}
     >
       {children}

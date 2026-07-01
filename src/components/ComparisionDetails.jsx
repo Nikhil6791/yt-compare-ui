@@ -1,29 +1,23 @@
-import React, { useState, useRef } from "react";
-import axios from "axios";
+import React, { useRef } from "react";
 import { useYT } from "../hooks/useYt.js";
 import { useContext } from "react";
 import { YTContext } from "../context/yt.context.jsx";
 import SearchDetail from "./SearchDetail.jsx";
 import VideoData from "./VideoData.jsx";
-import { useNavigate } from "react-router-dom";
 import ChannelData from "./ChannelData.jsx";
 import SearchInput from "./SearchInput.jsx";
 
-const ComparisionDetails = ({ props, tab }) => {
+const ComparisionDetails = ({ props }) => {
   // const { inputPlaceHolder } = props;
+
   const firstButtonRef = useRef();
   const secondButtonRef = useRef();
-  const navigate = useNavigate();
   const context = useContext(YTContext);
   const {
     firstVideoData,
     secondVideoData,
-    setFirstVideoData,
-    setSecondVideoData,
     firstChannelData,
-    setFirstChannelData,
     secondChannelData,
-    setSecondChannelData,
     firstInput,
     setFirstInput,
     secondInput,
@@ -31,9 +25,14 @@ const ComparisionDetails = ({ props, tab }) => {
     isClicked,
     setIsClicked,
     resetAll,
+    isFirstLoading,
+    isSecondLoading,
+    setIsFirstLoading,
+    setIsSecondLoading,
+    selectedTab,
   } = context;
-  const isChannelTab = tab === "channel";
-  const isVideoTab = tab === "video";
+  const isChannelTab = selectedTab === "channel";
+  const isVideoTab = selectedTab === "video";
 
   const isDisabled = isVideoTab
     ? !firstVideoData || !secondVideoData
@@ -51,9 +50,11 @@ const ComparisionDetails = ({ props, tab }) => {
     if (e.currentTarget === firstButtonRef.current) {
       input = firstInput;
       type = "first";
+      setIsFirstLoading(true);
     } else {
       input = secondInput;
       type = "second";
+      setIsSecondLoading(true);
     }
 
     let linkArr = input.split("/");
@@ -80,6 +81,7 @@ const ComparisionDetails = ({ props, tab }) => {
             onClick={handleYTVideoDataCaller}
             label={props.firstInputLabel}
             placeholder={props.inputPlaceHolder}
+            isLoading={isFirstLoading}
           />
           <SearchInput
             value={secondInput}
@@ -88,6 +90,7 @@ const ComparisionDetails = ({ props, tab }) => {
             onClick={handleYTVideoDataCaller}
             label={props.secondInputLabel}
             placeholder={props.inputPlaceHolder}
+            isLoading={isSecondLoading}
           />
         </div>
 

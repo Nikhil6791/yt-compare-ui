@@ -15,7 +15,7 @@ const Card = ({ props, onClick, className }) => {
   return (
     <div
       onClick={handleClick}
-      className={`cursor-pointer border p-4 rounded-2xl w-full ${className}`}
+      className={`cursor-pointer border border-gray-500 p-4 rounded-2xl w-full ${className}`}
     >
       <div className="heading flex gap-2 items-center justify-center">
         {props.icon}

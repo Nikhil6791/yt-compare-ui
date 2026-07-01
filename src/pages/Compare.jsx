@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "../components/Card";
 import {
   channelCardData,
@@ -7,9 +7,10 @@ import {
   videoSearchData,
 } from "../data";
 import ComparisionDetails from "../components/ComparisionDetails";
+import { YTContext } from "@/context/yt.context";
 const Compare = () => {
+  const { selectedTab, setSelectedTab } = useContext(YTContext);
   const [comparisionData, setComparisionData] = useState(channelSearchData);
-  const [selectedTab, setSelectedTab] = useState("channel");
 
   useEffect(() => {
     if (selectedTab === "video") {
@@ -36,9 +37,7 @@ const Compare = () => {
             className={selectedTab === "video" ? "border-red-500" : ""}
           />
         </div>
-        {comparisionData && (
-          <ComparisionDetails props={comparisionData} tab={selectedTab} />
-        )}
+        {comparisionData && <ComparisionDetails props={comparisionData} />}
       </div>
     </div>
   );
