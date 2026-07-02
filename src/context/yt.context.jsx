@@ -27,6 +27,8 @@ export const YTProvider = ({ children }) => {
     setFirstChannelData(null);
     setSecondChannelData(null);
     setIsClicked(false);
+    setIsFirstLoading(false);
+    setIsSecondLoading(false);
   };
 
   return (
