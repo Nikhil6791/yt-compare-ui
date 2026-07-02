@@ -22,8 +22,10 @@ export const fetchDataFromYoutubeApi = async ({ id }) => {
 };
 
 export const getChannelID = async ({ userName }) => {
+  console.log("UserName from getChannelID function", userName);
   try {
     const response = await api.get(`/channel/${userName}`);
+    console.log("Response", response);
     return response.data;
   } catch (error) {
     console.log(error);

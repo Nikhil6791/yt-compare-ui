@@ -34,6 +34,7 @@ export const useYT = () => {
     const data = await getChannelID({ userName });
     console.log("Data", data);
     const channelId = data.items[0].id.channelId;
+    console.log("Channel Id", channelId);
 
     const channelDetail = await fetchChannelDataFromYoutubeApi({ channelId });
     if (type === "first") {

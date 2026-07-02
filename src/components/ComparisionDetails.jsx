@@ -60,6 +60,7 @@ const ComparisionDetails = ({ props }) => {
     let linkArr = input.split("/");
     let id = linkArr[linkArr.length - 1].split("?")[0];
     let userName = linkArr[linkArr.length - 1].split("?")[0];
+    console.log("User Name", userName);
     if (isVideoTab) {
       await handleYTVideoData({ id, type });
     }
